@@ -15,17 +15,29 @@ namespace ExceptionHandlingExercise
             // Below we will set this up.
             // ------------------------------------------------------------------------------
 
-
-
             //TODO START HERE:
 
             // 1) Create an char[], it must contain 6 numbers and 3 letters - name it arr
+            char[] myCharArray = { 'H', '3', '2', 'e', '1', 'l' };
             
             // 2) Create a list called numbers that will hold integers
+            List<int> numbers = new List<int>();
         
             // 3) Create an string variable with an empty string initializer - name it str
+            string str = string.Empty;
             
-            // 4) Make a foreach loop to iterate through your character array            
+            // 4) Make a foreach loop to iterate through your character array 
+            foreach (char c in myCharArray)
+            {
+                try
+                {
+                    numbers.Add(int.Parse(c.ToString()));
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine($"Unable to Parse '{c}'"); //c will be the name of each item in your collection
+                }
+            }
                 // 5) Create a try-catch inide of your foreach loop
                     // 6) Inside the try block: 
                         // 7) Set your string variable to each array element in your char[] to .ToString()
@@ -38,10 +50,10 @@ namespace ExceptionHandlingExercise
                 
             
             // Uncomment the code below to see the numbers you successfully added to the numbers list: 
-            //foreach (var num in numbers)
-            //{
-            //    Console.WriteLine(num);
-            //}
+            foreach (var num in numbers)
+            { 
+                Console.WriteLine(num);
+            }
         }
     }
 }
